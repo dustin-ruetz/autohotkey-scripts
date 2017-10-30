@@ -7,6 +7,10 @@
 ** letter keys **
 */
 
+^#C::
+    Run, calc.exe
+    Return
+
 ^#E::
     Run, EXCEL.EXE
     Return
@@ -48,6 +52,11 @@ RunMAMP() {
 ; - refreshes all scripts\*ahk files
 ^#R::
     Run, %A_ScriptDir%\main.ahk
+    Return
+
+^#S::
+    ; Run, %windir%\system32\SnippingTool.exe
+    Run, SnippingTool.exe
     Return
 
 RunVSCode(Directory:="") {
