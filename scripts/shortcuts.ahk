@@ -50,7 +50,6 @@ RunMAMP() {
     Run, %A_ScriptDir%\main.ahk
     Return
 
-; Visual Studio Code
 RunVSCode(Directory:="") {
     Run, %ProgramFiles%\Microsoft VS Code\Code.exe %Directory%
     Return
@@ -67,7 +66,6 @@ RunVSCode(Directory:="") {
 ** function keys **
 */
 
-; Chrome
 RunChrome(Flag:="") {
     Run, chrome.exe %Flag%
     Return
@@ -79,7 +77,6 @@ RunChrome(Flag:="") {
     RunChrome("--incognito")
     Return
 
-; Firefox
 RunFirefox(Flag:="") {
     Run, firefox.exe %Flag%
     Return
@@ -91,7 +88,6 @@ RunFirefox(Flag:="") {
     RunFirefox("-private-window")
     Return
 
-; Internet Explorer
 RunIE(Flag:="") {
     Run, iexplore.exe %Flag%
     Return
@@ -103,7 +99,6 @@ RunIE(Flag:="") {
     RunIE("-private")
     Return
 
-; Cmder
 RunCmder(Flag:="", Directory:="/START D:\dr_dev-web") {
     Run, C:\tools\cmder\cmder%Flag%.lnk %Directory%
     ; wait indefinitely for the Cmder window to load, then force it right using Windows + RightArrow
