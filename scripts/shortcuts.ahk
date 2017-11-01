@@ -32,8 +32,8 @@ RunMAMP() {
     Run, notepad.exe
     Return
 
-; web project workflow
-^#P::
+; open a web project workflow
+^#O::
     InputBox, Site, Open a site, Enter the directory of the site you want to work on., , 350, 125,
     , , , , D:\dr_dev-web\
 
@@ -46,6 +46,10 @@ RunMAMP() {
     If InStr(Site, WordPress)
         RunMAMP()
 
+    Return
+
+^#P::
+    Run, mspaint.exe
     Return
 
 ; reload main.ahk script
