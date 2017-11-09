@@ -21,10 +21,13 @@ CopyPaste(FileName) {
 
 !#A::
     CopyPaste("js_function-arrow.js")
+    Send, {Left}
     Return
 
 !#C::
     CopyPaste("js_consoleLog.js")
+    Send, {Left}
+    Send, {Left}
     Return
 
 !#D::
@@ -37,10 +40,13 @@ CopyPaste(FileName) {
 
 !#F::
     CopyPaste("js_function.js")
+    Send, {Left}
     Return
 
 !#Q::
     CopyPaste("js_documentQuerySelector.js")
+    Send, {Left}
+    Send, {Left}
     Return
 
 !#T::
