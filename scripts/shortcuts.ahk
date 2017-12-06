@@ -129,9 +129,6 @@ RunIE(Flag:="") {
 
 RunCmder(Flag:="", Directory:="/START D:\dr_dev-web") {
     Run, C:\tools\cmder\cmder%Flag%.lnk %Directory%
-    ; wait indefinitely for the Cmder window to load, then force it right using Windows + RightArrow
-    WinWait, Cmder
-    Send, #{Right}
     Return
 }
 ; description: Cmder
