@@ -31,6 +31,10 @@ RunMAMP() {
     Run, C:\MAMP\MAMP.exe
     Return
 }
+; description: MAMP
+^#M::
+    RunMAMP()
+    Return
 
 ; description: Notepad
 ^#N::
@@ -39,16 +43,19 @@ RunMAMP() {
 
 ; description: open dev workflow (Cmder, MAMP, VS Code)
 ^#O::
-    InputBox, Site, Open a site, Enter the directory of the site you want to work on., , 350, 125,
-    , , , , D:\dr_dev-web\
+    FileSelectFolder, SelectedFolder, D:\, 3, Select a folder to work on.
 
-    ; open the directory in Cmder and Visual Studio Code
-    RunCmder("", Site)
-    RunVSCode(Site)
+    ; if the select folder dialog is dismissed, end the function
+    If ErrorLevel
+        Return
 
-    ; if the site is a WordPress site, start MAMP
-    WordPress := "wp"
-    If InStr(Site, WordPress)
+    ; open the project folder in Cmder and Visual Studio Code
+    RunCmder("", SelectedFolder)
+    RunVSCode(SelectedFolder)
+
+    ; if the project is a WordPress site, start MAMP
+    wp := "wp"
+    If InStr(SelectedFolder, wp)
         RunMAMP()
 
     Return
