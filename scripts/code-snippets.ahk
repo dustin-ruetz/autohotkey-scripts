@@ -19,36 +19,43 @@ CopyPaste(FileName) {
 ** letter keys **
 */
 
+; description: arrow function
 !#A::
     CopyPaste("js_function-arrow.js")
     Send, {Left}
     Return
 
+; description: console.log
 !#C::
     CopyPaste("js_consoleLog.js")
     Send, {Left}
     Send, {Left}
     Return
 
+; description: DOMContentLoaded
 !#D::
     CopyPaste("js_domContentLoaded.js")
     Return
 
+; description: addEventListener
 !#E::
     CopyPaste("js_addEventListener.js")
     Return
 
+; description: function
 !#F::
     CopyPaste("js_function.js")
     Send, {Left}
     Return
 
+; description: document.querySelector
 !#Q::
     CopyPaste("js_documentQuerySelector.js")
     Send, {Left}
     Send, {Left}
     Return
 
+; description: timeout
 !#T::
     CopyPaste("js_timeout.js")
     Return

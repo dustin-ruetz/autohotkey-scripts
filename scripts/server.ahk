@@ -8,17 +8,17 @@
 ** number row keys **
 */
 
-; open finances spreadsheet
+; description: open finances spreadsheet
 ^#`::
     Run, S:\Financial\2017-finances.xlsx
     Return
 
-; wake the server
+; description: wake server
 ^#1::
     Run, C:\_server\server-wake.lnk WorkingDir
     Return
 
-; put the server to sleep
+; description: put server to sleep
 ^#2::
     Run, C:\_server\server-sleep.lnk WorkingDir
     Return
