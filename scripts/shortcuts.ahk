@@ -27,13 +27,13 @@
     Run, %ProgramFiles% (x86)\KeePass Password Safe 2\KeePass.exe
     Return
 
-RunMAMP() {
-    Run, C:\MAMP\MAMP.exe
+RunMusic() {
+    Run, C:\Users\dustin\AppData\Local\GPMDP_3\app-4.4.1\Google Play Music Desktop Player.exe
     Return
 }
-; description: MAMP
+; description: music (Google Play Music Desktop Player)
 ^#M::
-    RunMAMP()
+    RunMusic()
     Return
 
 ; description: Notepad
@@ -56,7 +56,7 @@ RunMAMP() {
     ; if the project is a WordPress site, start MAMP
     wp := "wp"
     If InStr(SelectedFolder, wp)
-        RunMAMP()
+        Run, C:\MAMP\MAMP.exe
 
     Return
 
