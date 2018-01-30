@@ -17,6 +17,11 @@
     Run, EXCEL.EXE
     Return
 
+; description: FileZilla
+^#F::
+    Run, filezilla.exe
+    Return
+
 ; description: GIMP
 ^#G::
     Run, %ProgramFiles%\GIMP 2\bin\gimp-2.8.exe
