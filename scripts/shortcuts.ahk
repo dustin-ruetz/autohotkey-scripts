@@ -46,22 +46,24 @@ RunMusic() {
     Run, notepad.exe
     Return
 
-; description: open dev workflow (Cmder, MAMP, VS Code)
+; description: open dev workflow (MAMP, Cmder, VS Code)
 ^#O::
-    FileSelectFolder, SelectedFolder, D:\, 3, Select a folder to work on.
+    FileSelectFolder, SelectedFolder, D:\, 3, Select a project folder to open.
 
-    ; if the select folder dialog is dismissed, end the function
+    ; if the FileSelectFolder dialog is dismissed, end the function
     If ErrorLevel
         Return
 
-    ; open the project folder in Cmder and Visual Studio Code
-    RunCmder("", SelectedFolder)
-    RunVSCode(SelectedFolder)
-
-    ; if the project is a WordPress site, start MAMP
-    wp := "wp"
-    If InStr(SelectedFolder, wp)
+    ; the second parameter of MsgBox is Options; 68 is its summed value
+        ; 4  = MsgBox with "Yes" and "No" buttons
+        ; 64 = MsgBox with an "i" (info) icon
+    MsgBox, 68, Open MAMP?, If this is a WordPress site, select "Yes" to open MAMP.
+    IfMsgBox Yes
         Run, C:\MAMP\MAMP.exe
+
+    ; open Cmder and open the project folder in Visual Studio Code
+    RunCmder()
+    RunVSCode(SelectedFolder)
 
     Return
 
