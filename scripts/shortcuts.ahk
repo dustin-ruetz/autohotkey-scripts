@@ -33,7 +33,7 @@
     Return
 
 RunMusic() {
-    Run, C:\Users\dustin\AppData\Local\GPMDP_3\app-4.4.1\Google Play Music Desktop Player.exe
+    Run, C:\Users\dustin\AppData\Local\GPMDP_3\app-4.5.0\Google Play Music Desktop Player.exe
     Return
 }
 ; description: music (Google Play Music Desktop Player)
