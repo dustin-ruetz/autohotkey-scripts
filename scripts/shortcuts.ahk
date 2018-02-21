@@ -76,7 +76,6 @@
 
 ; description: Snipping Tool
 ^#S::
-    ; Run, %windir%\system32\SnippingTool.exe
     Run, SnippingTool.exe
     Return
 
