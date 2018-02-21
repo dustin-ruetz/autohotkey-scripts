@@ -139,8 +139,8 @@ RunIE(Flag:="") {
     RunIE("-private")
     Return
 
-RunCmder(Flag:="", Directory:="/START D:\dr_dev-web") {
-    Run, C:\tools\cmder\cmder%Flag%.lnk %Directory%
+RunCmder(Flag:="") {
+    Run, C:\tools\cmder\cmder%Flag%.lnk
     Return
 }
 ; description: Cmder
