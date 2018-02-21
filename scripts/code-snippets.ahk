@@ -6,13 +6,17 @@
 /*
     CopyPaste function
     - pass in a file to read its contents
-    - copy contents to the clipboard
-    - paste contents in active window
+    - set ClipboardBackup to the clipboard's current contents
+    - copy the file's contents to the clipboard
+    - paste the file's contents in the active window
+    - set the clipboard to ClipboardBackup
 */
 CopyPaste(FileName) {
     static CSPath := "D:\dr_dev-web\code-snippets\"
+    ClipboardBackup := Clipboard
     FileRead, Clipboard, %CSPath%%FileName%
     Send, ^v
+    Clipboard = %ClipboardBackup%
 }
 
 /*
