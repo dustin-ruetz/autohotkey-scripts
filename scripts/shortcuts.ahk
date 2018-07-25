@@ -24,12 +24,12 @@
 
 ; description: GIMP
 ^#G::
-    Run, %ProgramFiles%\GIMP 2\bin\gimp-2.8.exe
+    Run, gimp.exe
     Return
 
 ; description: KeePass
 ^#K::
-    Run, %ProgramFiles% (x86)\KeePass Password Safe 2\KeePass.exe
+    Run, keepass.exe
     Return
 
 ; description: music (Google Play Music Desktop Player)
@@ -80,7 +80,7 @@
     Return
 
 RunVSCode(Directory:="") {
-    Run, %ProgramFiles%\Microsoft VS Code\Code.exe %Directory%
+    Run, code.cmd %Directory%
     Return
 }
 ; description: Visual Studio Code
@@ -137,14 +137,10 @@ RunIE(Flag:="") {
     Return
 
 RunCmder(Flag:="") {
-    Run, C:\tools\cmder\cmder%Flag%.lnk
+    Run, cmder.exe
     Return
 }
 ; description: Cmder
 ^#F7::
     RunCmder()
-    Return
-; description: Cmder (admin)
-^#F8::
-    RunCmder("--admin")
     Return
