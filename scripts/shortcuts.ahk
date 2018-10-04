@@ -4,32 +4,54 @@
 */
 
 /*
+  OpenApp function
+    - pass in an application name to open it (string, required)
+    - pass in a command line parameter, ex: "--incognito", "C:\Users\", etc. (string, optional)
+    - pass in a "true" to close the shim Command Prompt window (boolean, optional)
+*/
+OpenApp(Name, Parameter := "", HasShimWindow := false) {
+  If !Parameter {
+    Run, %Name%
+  } Else {
+    Run, %Name% %Parameter%
+  }
+
+  If HasShimWindow {
+    ; - close the shim Command Prompt window that's created when opening Scoop apps
+    ; - adapted from post #5 by SKAN on the AutoHotkey forums
+    ; - https://autohotkey.com/board/topic/32456-winclose-not-closing-cmd-for-some-reason/?p=206332
+    WinWait, ahk_class ConsoleWindowClass
+    PostMessage, 0x112, 0xF060, , , %USERPROFILE%\scoop\shims\%Name%
+  }
+}
+
+/*
 ** letter keys **
 */
 
 ; description: Calculator
 ^#C::
-  Run, calc.exe
+  OpenApp("calc.exe")
   Return
 
 ; description: Excel
 ^#E::
-  Run, EXCEL.EXE
+  OpenApp("EXCEL.EXE")
   Return
 
 ; description: FileZilla
 ^#F::
-  Run, filezilla.exe
+  OpenApp("filezilla.exe", , true)
   Return
 
 ; description: GIMP
 ^#G::
-  Run, gimp.exe
+  OpenApp("gimp.exe", , true)
   Return
 
 ; description: KeePass
 ^#K::
-  Run, keepass.exe
+  OpenApp("keepass.exe", , true)
   Return
 
 ; description: music (Google Play Music Desktop Player)
@@ -39,7 +61,7 @@
 
 ; description: Notepad
 ^#N::
-  Run, notepad.exe
+  OpenApp("notepad.exe")
   Return
 
 ; description: open dev workflow (MAMP, Cmder, VS Code)
@@ -57,15 +79,15 @@
   IfMsgBox Yes
     Run, C:\MAMP\MAMP.exe
 
-  ; open Cmder and open the project folder in Visual Studio Code
-  RunCmder()
-  RunVSCode(SelectedFolder)
+  ; open the project folder in Cmder and Visual Studio Code
+  OpenApp("cmder.exe", "/start " SelectedFolder)
+  OpenApp("code.cmd", SelectedFolder)
 
   Return
 
 ; description: Paint
 ^#P::
-  Run, mspaint.exe
+  OpenApp("mspaint.exe")
   Return
 
 ; description: reload main.ahk
@@ -76,71 +98,51 @@
 
 ; description: Snipping Tool
 ^#S::
-  Run, SnippingTool.exe
+  OpenApp("SnippingTool.exe")
   Return
 
-RunVSCode(Directory:="") {
-  Run, code.cmd %Directory%
-  Return
-}
 ; description: Visual Studio Code
 ^#V::
-  RunVSCode()
+  OpenApp("code.cmd")
   Return
 
 ; description: Word
 ^#W::
-  Run, WINWORD.EXE
+  OpenApp("WINWORD.EXE")
   Return
 
 /*
 ** function keys **
 */
 
-RunChrome(Flag:="") {
-  Run, chrome.exe %Flag%
-  Return
-}
 ; description: Chrome
 ^#F1::
-  RunChrome()
+  OpenApp("chrome.exe", , true)
   Return
 ; description: Chrome (incognito)
 ^#F2::
-  RunChrome("--incognito")
+  OpenApp("chrome.exe", "--incognito", true)
   Return
 
-RunFirefox(Flag:="") {
-  Run, firefox.exe %Flag%
-  Return
-}
 ; description: Firefox
 ^#F3::
-  RunFirefox()
+  OpenApp("firefox.exe", , true)
   Return
 ; description: Firefox (private)
 ^#F4::
-  RunFirefox("-private-window")
+  OpenApp("firefox.exe", "-private-window", true)
   Return
 
-RunIE(Flag:="") {
-  Run, iexplore.exe %Flag%
-  Return
-}
 ; description: Internet Explorer
 ^#F5::
-  RunIE()
+  OpenApp("iexplore.exe")
   Return
 ; description: Internet Explorer (private)
 ^#F6::
-  RunIE("-private")
+  OpenApp("iexplore.exe", "-private")
   Return
 
-RunCmder(Flag:="") {
-  Run, cmder.exe
-  Return
-}
 ; description: Cmder
 ^#F7::
-  RunCmder()
+  OpenApp("cmder.exe")
   Return
