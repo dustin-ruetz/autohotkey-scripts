@@ -146,3 +146,12 @@ OpenApp(Name, Parameter := "", HasShimWindow := false) {
 ^#F7::
   OpenApp("cmder.exe")
   Return
+
+/*
+** symbol keys **
+*/
+
+; description: show the taskbar calendar
+^#/::
+  SendInput, #b{Up}{Enter}
+  Return
