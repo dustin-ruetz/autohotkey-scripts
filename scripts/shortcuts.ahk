@@ -16,8 +16,12 @@ OpenApp(Name, Parameter := "", HasShimWindow := false) {
     Run, %Name% %Parameter%
   }
 
+  ; shim Command Prompt windows are created when opening applications installed via Scoop
   If HasShimWindow {
-    ; - close the shim Command Prompt window that's created when opening Scoop apps
+    ; wait 1000ms (i.e. 1s) to ensure that the shim command has time to execute
+    Sleep, 1000
+
+    ; close the shim Command Prompt window
     ; - adapted from post #5 by SKAN on the AutoHotkey forums
     ; - https://autohotkey.com/board/topic/32456-winclose-not-closing-cmd-for-some-reason/?p=206332
     WinWait, ahk_class ConsoleWindowClass
