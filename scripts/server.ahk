@@ -10,7 +10,7 @@
 
 ; description: open finances spreadsheet
 ^#`::
-  Run, S:\financial\2018-finances.xlsx
+  Run, S:\financial\2019-finances.xlsx
   Return
 
 ; description: wake server
