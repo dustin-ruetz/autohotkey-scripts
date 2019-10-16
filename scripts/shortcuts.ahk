@@ -43,6 +43,11 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 ** letter keys **
 */
 
+; description: Bitwarden
+^#B::
+  OpenScoopApp("bitwarden", "Bitwarden.exe")
+  Return
+
 ; description: Calculator
 ^#C::
   OpenApp("calc.exe")
