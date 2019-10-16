@@ -29,13 +29,13 @@ OpenApp(Name, Parameter := "", HasShimWindow := false) {
   }
 }
 
-OpenScoopApp(Directory, Executable, Parameter := "") {
-  App = %UserProfile%\scoop\apps\%Directory%\current\%Executable%
+OpenScoopApp(Name, Parameter := "") {
+  StartMenuPath = %UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scoop Apps
 
   If !Parameter {
-    Run, %App%
+    Run, %StartMenuPath%\%Name%.lnk
   } Else {
-    Run, %App% %Parameter%
+    Run, %StartMenuPath%\%Name%.lnk %Parameter%
   }
 }
 
@@ -45,7 +45,7 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 
 ; description: Bitwarden
 ^#B::
-  OpenScoopApp("bitwarden", "Bitwarden.exe")
+  OpenScoopApp("Bitwarden")
   Return
 
 ; description: Calculator
@@ -60,17 +60,17 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 
 ; description: FileZilla
 ^#F::
-  OpenApp("filezilla.exe", , true)
+  OpenScoopApp("FileZilla")
   Return
 
 ; description: GIMP
 ^#G::
-  OpenApp("gimp.exe", , true)
+  OpenScoopApp("GIMP")
   Return
 
 ; description: KeePass
 ^#K::
-  OpenApp("keepass.exe", , true)
+  OpenScoopApp("KeePass")
   Return
 
 ; description: music (Google Play Music Desktop Player)
@@ -122,7 +122,7 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 
 ; description: Visual Studio Code
 ^#V::
-  OpenApp("code.cmd")
+  OpenScoopApp("Visual Studio Code")
   Return
 
 ; description: Word
@@ -136,20 +136,20 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 
 ; description: Chrome
 ^#F1::
-  OpenApp("chrome.exe", , true)
+  OpenScoopApp("Google Chrome")
   Return
 ; description: Chrome (incognito)
 ^#F2::
-  OpenApp("chrome.exe", "--incognito", true)
+  OpenScoopApp("Google Chrome", "--incognito")
   Return
 
 ; description: Firefox
 ^#F3::
-  OpenApp("firefox.exe", , true)
+  OpenScoopApp("Mozilla Firefox")
   Return
 ; description: Firefox (private)
 ^#F4::
-  OpenApp("firefox.exe", "-private-window", true)
+  OpenScoopApp("Mozilla Firefox", "-private-window")
   Return
 
 ; description: Internet Explorer
@@ -163,5 +163,5 @@ OpenScoopApp(Directory, Executable, Parameter := "") {
 
 ; description: Cmder
 ^#F7::
-  OpenApp("cmder.exe")
+  OpenScoopApp("Cmder")
   Return
