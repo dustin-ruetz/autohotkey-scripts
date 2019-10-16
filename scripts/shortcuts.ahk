@@ -99,8 +99,8 @@ OpenScoopApp(Name, Parameter := "") {
     Run, C:\MAMP\MAMP.exe
 
   ; open the project folder in Cmder and Visual Studio Code
-  OpenApp("cmder.exe", "/start " SelectedFolder)
-  OpenApp("code.cmd", SelectedFolder)
+  OpenScoopApp("Cmder", "/start " SelectedFolder)
+  OpenScoopApp("Visual Studio Code", SelectedFolder)
 
   Return
 
