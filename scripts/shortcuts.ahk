@@ -29,6 +29,16 @@ OpenApp(Name, Parameter := "", HasShimWindow := false) {
   }
 }
 
+OpenScoopApp(Directory, Executable, Parameter := "") {
+  App = %UserProfile%\scoop\apps\%Directory%\current\%Executable%
+
+  If !Parameter {
+    Run, %App%
+  } Else {
+    Run, %App% %Parameter%
+  }
+}
+
 /*
 ** letter keys **
 */
