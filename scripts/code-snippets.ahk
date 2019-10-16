@@ -36,11 +36,6 @@ CopyPaste(FileName) {
   Send, {Left}
   Return
 
-; description: DOMContentLoaded
-!#D::
-  CopyPaste("js_domContentLoaded.js")
-  Return
-
 ; description: addEventListener
 !#E::
   CopyPaste("js_addEventListener.js")
