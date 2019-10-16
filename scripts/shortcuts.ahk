@@ -3,32 +3,16 @@
   - key combo: Ctrl + Windows + [Key]
 */
 
-/*
-  OpenApp function
-    - pass in an application name to open it (string, required)
-    - pass in a command line parameter, ex: "--incognito", "C:\Users\", etc. (string, optional)
-    - pass in a "true" to close the shim Command Prompt window (boolean, optional)
-*/
-OpenApp(Name, Parameter := "", HasShimWindow := false) {
+; use OpenApp for built-in PATH-aware Windows applications
+OpenApp(Name, Parameter := "") {
   If !Parameter {
-    Run, %Name%
+    Run, %Name%.exe
   } Else {
-    Run, %Name% %Parameter%
-  }
-
-  ; shim Command Prompt windows are created when opening applications installed via Scoop
-  If HasShimWindow {
-    ; wait 1000ms (i.e. 1s) to ensure that the shim command has time to execute
-    Sleep, 1000
-
-    ; close the shim Command Prompt window
-    ; - adapted from post #5 by SKAN on the AutoHotkey forums
-    ; - https://autohotkey.com/board/topic/32456-winclose-not-closing-cmd-for-some-reason/?p=206332
-    WinWait, ahk_class ConsoleWindowClass
-    PostMessage, 0x112, 0xF060, , , %USERPROFILE%\scoop\shims\%Name%
+    Run, %Name%.exe %Parameter%
   }
 }
 
+; use OpenScoopApp for Scoop-installed applications
 OpenScoopApp(Name, Parameter := "") {
   StartMenuPath = %UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scoop Apps
 
@@ -50,12 +34,12 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Calculator
 ^#C::
-  OpenApp("calc.exe")
+  OpenApp("calc")
   Return
 
 ; description: Excel
 ^#E::
-  OpenApp("EXCEL.EXE")
+  OpenApp("EXCEL")
   Return
 
 ; description: FileZilla
@@ -80,7 +64,7 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Notepad
 ^#N::
-  OpenApp("notepad.exe")
+  OpenApp("notepad")
   Return
 
 ; description: open dev workflow (MAMP, Cmder, VS Code)
@@ -106,7 +90,7 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Paint
 ^#P::
-  OpenApp("mspaint.exe")
+  OpenApp("mspaint")
   Return
 
 ; description: reload main.ahk
@@ -117,7 +101,7 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Snipping Tool
 ^#S::
-  OpenApp("SnippingTool.exe")
+  OpenApp("SnippingTool")
   Return
 
 ; description: Visual Studio Code
@@ -127,7 +111,7 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Word
 ^#W::
-  OpenApp("WINWORD.EXE")
+  OpenApp("WINWORD")
   Return
 
 /*
@@ -154,11 +138,11 @@ OpenScoopApp(Name, Parameter := "") {
 
 ; description: Internet Explorer
 ^#F5::
-  OpenApp("iexplore.exe")
+  OpenApp("iexplore")
   Return
 ; description: Internet Explorer (private)
 ^#F6::
-  OpenApp("iexplore.exe", "-private")
+  OpenApp("iexplore", "-private")
   Return
 
 ; description: Cmder
