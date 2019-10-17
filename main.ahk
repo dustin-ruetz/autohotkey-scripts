@@ -34,3 +34,5 @@ FileRead, IncludeNew, %A_ScriptDir%\include\include.ahk
 */
 If IncludeOld <> %IncludeNew%
   Reload
+
+; cSpell:words Maestr

@@ -144,3 +144,5 @@ OpenScoopApp(Name, Parameter := "") {
 ^#F7::
   OpenScoopApp("Cmder")
   Return
+
+; cSpell:words FileZilla, GPMDP, iexplore, MAMP, mspaint, WINWORD

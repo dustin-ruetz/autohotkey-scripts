@@ -15,3 +15,5 @@
 ^#Numpad1::
   SendInput, {Raw}Use SendInput to type text.
   Return
+
+; cSpell:words Numpad

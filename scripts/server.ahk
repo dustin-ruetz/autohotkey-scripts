@@ -22,3 +22,6 @@
 ^#2::
   Run, C:\_server\server-sleep.lnk WorkingDir
   Return
+
+; cSpell:ignore xlsx
+; cSpell:words workingdir
