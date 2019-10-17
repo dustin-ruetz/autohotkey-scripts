@@ -52,11 +52,6 @@ OpenScoopApp(Name, Parameter := "") {
   OpenScoopApp("GIMP")
   Return
 
-; description: KeePass
-^#K::
-  OpenScoopApp("KeePass")
-  Return
-
 ; description: music (Google Play Music Desktop Player)
 ^#M::
   Run, C:\Users\dustin\AppData\Local\GPMDP_3\app-4.5.0\Google Play Music Desktop Player.exe
