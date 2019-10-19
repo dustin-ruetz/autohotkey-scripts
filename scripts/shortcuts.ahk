@@ -112,6 +112,11 @@ OpenStoreApp(Name) {
   OpenApp("SnippingTool")
   Return
 
+; description: Trello
+^#T::
+  OpenStoreApp("Trello")
+  Return
+
 ; description: Visual Studio Code
 ^#V::
   OpenScoopApp("Visual Studio Code")
@@ -158,4 +163,4 @@ OpenStoreApp(Name) {
   OpenScoopApp("Cmder")
   Return
 
-; cSpell:words FileZilla, GPMDP, iexplore, MAMP, mspaint, WINWORD
+; cSpell:words FileZilla, GPMDP, iexplore, MAMP, mspaint, Trello, WINWORD
