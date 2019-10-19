@@ -23,6 +23,19 @@ OpenScoopApp(Name, Parameter := "") {
   }
 }
 
+; use OpenStoreApp for Microsoft Store-installed applications
+OpenStoreApp(Name) {
+  ClipboardBackup := Clipboard
+  KeyWait, Ctrl
+  Send, {LWin}
+  Sleep, 250
+  Clipboard = %Name%
+  Send, ^v
+  Sleep, 250
+  Send, {Enter}
+  Clipboard = %ClipboardBackup%
+}
+
 /*
 ** letter keys **
 */
