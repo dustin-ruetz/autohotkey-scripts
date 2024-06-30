@@ -42,12 +42,17 @@ OpenStoreApp(Name) {
 
 ; description: Bitwarden
 ^#B::
-  OpenScoopApp("Bitwarden")
+  OpenStoreApp("Bitwarden")
   Return
 
 ; description: Calculator
 ^#C::
   OpenApp("calc")
+  Return
+
+; description: context key
+^#PrintScreen::
+  Send, {AppsKey}
   Return
 
 ; description: Excel
